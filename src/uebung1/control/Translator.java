@@ -12,7 +12,7 @@ package uebung1.control;
 public interface Translator {
 
 	// Konstante Variable
-	double version = 1.0; // Version des Interface..
+	double version = 1.0; // Version des Interface
 	
 	/*
 	 * Uebersetzt eine numerische Zahl in eine String-basierte
