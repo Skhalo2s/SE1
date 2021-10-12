@@ -10,7 +10,7 @@ import uebung1.control.*;
  */
 
 
-//Factory-Klasse zur zentralen und konsistenten Erstellung von Translator-Objekten (Design Pattern Factory Method)
+//Factory-Klasse zur zentralen und konsistenten Erstellung von Translator-Objekten (Design Pattern Factory Method).
 public class TranslatorFactory {
 
 

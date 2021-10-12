@@ -6,7 +6,7 @@ public class EnglishTranslator implements Translator {
     public String date = "Okt/2021"; // Default-Wert
 
     /**
-     * Methode zur Übersetzung einer Zahl in eine String-Repraesentation
+     * Methode zur Übersetzung einer Zahl in eine String-Repraesentation.
      */
     public String translateNumber( int number ) {
 

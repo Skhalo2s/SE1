@@ -22,7 +22,7 @@ public class BlackBoxTest {
     public void test() {
 
         // Positivtests
-        // Äquivalenzklasse AK (1 <= x <=10)
+        // Äquivalenzklasse AK (1 <= x <=10).
         client.display(1);
         client.display(2);
         client.display(3);

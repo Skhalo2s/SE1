@@ -33,7 +33,7 @@ class GermanTranslatorTest {
         String[] gNumbers_Test = {"Eins","Zwei","Drei","Vier","Fünf","Sechs","Sieben", "Acht", "Neuen", "Zehn"};
 
         // Positivtests
-        // Äquivalenzklasse ÄK (1 <= x <=10)
+        // Äquivalenzklasse ÄK (1 <= x <=10).
 
         //Möglichkeit 1
         assertEquals("Eins",translator.translateNumber(1));

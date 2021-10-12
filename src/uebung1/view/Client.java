@@ -20,7 +20,7 @@ public class Client {
 	}
 
 	/*
-	 * Methode zur Ausgabe einer Zahl auf der Console
+	 * Methode zur Ausgabe einer Zahl auf der Console.
 	 */
 	public void display(int aNumber ){
 		// In dieser Methode soll die Methode translateNumber 

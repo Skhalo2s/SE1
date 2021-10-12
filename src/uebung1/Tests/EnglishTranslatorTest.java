@@ -28,7 +28,7 @@ class EnglishTranslatorTest {
         String[] eNumbers_Test = {"one", "two", "three", "four", "five", "six", "seven", "eight", "nine", "ten"};
 
         // Positivtests
-        // Äquivalenzklasse AK (1 <= x <=10)
+        // Äquivalenzklasse AK (1 <= x <=10).
         for (int i = 1; i < 10; i++)
             assertEquals(eNumbers_Test[i - 1], translator.translateNumber(i));
         assertEquals("one", translator.translateNumber(1));
