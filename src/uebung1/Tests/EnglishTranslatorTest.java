@@ -12,7 +12,7 @@ import static org.junit.jupiter.api.Assertions.*;
  * @vision 1.0
  *
  */
-// automatisierter Test der  klasse EnglishTranslator
+// automatisierter Test der  klasse EnglishTranslator.
 class EnglishTranslatorTest {
 
     private Translator translator = null;
