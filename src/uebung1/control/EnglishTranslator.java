@@ -1,6 +1,12 @@
 package uebung1.control;
 
-import uebung1.control.Translator;
+/**
+ *
+ * @author Salah Khalosi
+ * @fachbereich_kuerzel skhalo2s
+ * @vision 1.0
+ *
+ */
 
 public class EnglishTranslator implements Translator {
     public String date = "Okt/2021"; // Default-Wert
