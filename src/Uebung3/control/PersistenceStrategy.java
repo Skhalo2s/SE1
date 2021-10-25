@@ -14,7 +14,7 @@ import java.util.List;
  * The following protocol applies:
  * 1. openConnection
  * 2. { load | save }  (many times)
- * 3. closeConnection
+ * 3. closeConnection.
  *
  * @param <E>
  */

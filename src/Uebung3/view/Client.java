@@ -4,6 +4,13 @@ import Uebung3.control.Container;
 import Uebung3.control.ActualMember;
 import Uebung3.control.MemberView;
 import Uebung3.control.exceptions.ContainerException;
+/**
+ *
+ * @author Salah Khalosi
+ * @fachbereich_kuerzel skhalo2s
+ * @vision 1.0
+ *
+ */
 
 public class Client {
 

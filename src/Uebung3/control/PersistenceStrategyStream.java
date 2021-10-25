@@ -1,11 +1,15 @@
 package Uebung3.control;
-
-import Uebung3.control.PersistenceStrategy;
 import Uebung3.control.exceptions.PersistenceException;
-
 import java.io.*;
-
 import java.util.List;
+/**
+ *
+ * @author Salah Khalosi
+ * @fachbereich_kuerzel skhalo2s
+ * @vision 1.0
+ *
+ */
+
 
 public class PersistenceStrategyStream<Member> implements PersistenceStrategy<Member> {
 

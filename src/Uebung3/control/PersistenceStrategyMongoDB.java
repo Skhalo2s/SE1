@@ -1,6 +1,13 @@
 package Uebung3.control;
 
-import Uebung3.control.PersistenceStrategy;
+/**
+ *
+ * @author Salah Khalosi
+ * @fachbereich_kuerzel skhalo2s
+ * @vision 1.0
+ *
+ */
+
 import Uebung3.control.exceptions.PersistenceException;
 
 import java.util.List;
