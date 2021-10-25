@@ -88,9 +88,9 @@ public class Container {
             throw new PersistenceException( PersistenceException.ExceptionType.NoStrategyIsSet,"Strategy not initialized");
 
         try {
-            myStrategy.openConnection();
+
             myStrategy.save(container);
-            myStrategy.closeConnection();
+
         }catch (java.lang.UnsupportedOperationException e){
                 throw new PersistenceException(PersistenceException.ExceptionType.ImplementationNotAvailable, "Not implemented");
         }
@@ -101,15 +101,16 @@ public class Container {
         if(myStrategy== null)
             throw new PersistenceException( PersistenceException.ExceptionType.NoStrategyIsSet,"Strategy not initialized");
         try {
-            myStrategy.openConnection();
+
             this.container = myStrategy.load();
-            myStrategy.closeConnection();
+
         }
         catch (java.lang.UnsupportedOperationException e){
             throw new PersistenceException(PersistenceException.ExceptionType.ImplementationNotAvailable, "Not implemented");
         }
 
     }
+
 
 
 

@@ -30,15 +30,8 @@ public class PersistenceStrategyStream<Member> implements PersistenceStrategy<Me
      */
     public void openConnection() throws PersistenceException {
 
-        if (location == null)
-            throw new PersistenceException(PersistenceException.ExceptionType.ConnectionNotAvailable,"No Connection");
-        try {
-            objOut = new ObjectOutputStream(new FileOutputStream(location));
-            ois = new ObjectInputStream(new FileInputStream(location));
-        }
-        catch (IOException e) {
-           throw new PersistenceException(PersistenceException.ExceptionType.ConnectionNotAvailable,"No Connection");
-        }
+        throw new PersistenceException(PersistenceException.ExceptionType.ImplementationNotAvailable,"Implementation Not Available");
+
     }
 
     @Override
@@ -47,13 +40,8 @@ public class PersistenceStrategyStream<Member> implements PersistenceStrategy<Me
      */
     public void closeConnection() throws PersistenceException {
 
-        try {
-            ois.close();
-            objOut.close();
-        }
-        catch (IOException e) {
-            e.printStackTrace();
-        }
+        throw new PersistenceException(PersistenceException.ExceptionType.ImplementationNotAvailable,"Implementation Not Available");
+
     }
 
     @Override
@@ -63,14 +51,13 @@ public class PersistenceStrategyStream<Member> implements PersistenceStrategy<Me
     public void save(List<Member> member) throws PersistenceException {
 
         try {
+            objOut = new ObjectOutputStream(new FileOutputStream(location));
             objOut.writeObject(member);
+            objOut.close();
         }
         catch (IOException e) {
             e.printStackTrace();
         }
-
-
-
     }
 
     @Override
@@ -97,17 +84,21 @@ public class PersistenceStrategyStream<Member> implements PersistenceStrategy<Me
         // return newListe
 
         // and finally close the streams (guess where this could be...?)
-
+        if (location == null)
+            throw new PersistenceException(PersistenceException.ExceptionType.ConnectionNotAvailable,"No Connection");
 
             try {
+                ois = new ObjectInputStream(new FileInputStream(location));
                 newListe = (List<Member>) ois.readObject();
-
+                ois.close();
+            }
+            catch (FileNotFoundException  e) {
+                throw new PersistenceException(PersistenceException.ExceptionType.ConnectionNotAvailable,"No Connection");
             }
             catch (ClassNotFoundException  e) {
                 e.printStackTrace();
-            } catch (EOFException exc) {
-                exc.printStackTrace();
-            } catch (IOException e) {
+            }
+            catch (IOException e) {
                  e.printStackTrace();
             }
 
