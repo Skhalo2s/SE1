@@ -54,29 +54,9 @@ class ContainerTest {
 
 
 
-
-
-
-
-    @Test
-    void LoadeStoreTest(){
-        container.setPersistenceStrategie(new PersistenceStrategyStream());
-        try {
-            container.addMember(member1);
-            container.addMember(member2);
-            container.addMember(member3);
-            container.store();
-            assertEquals(3,container.size());
-
-        } catch (ContainerException | PersistenceException | FileNotFoundException e) {
-            e.printStackTrace();
-        }
-
-    }
-
     @Test
 
-    void Store(){
+    void StoreLoadeTest(){
 
         container = Container.getInstanc();
         container.setPersistenceStrategie(new PersistenceStrategyStream());
@@ -140,7 +120,7 @@ class ContainerTest {
 
     }
 
-    @Test
+    /*@Test
     void Lode(){
         container.setPersistenceStrategie(new PersistenceStrategyStream());
         try {
@@ -155,7 +135,7 @@ class ContainerTest {
             e.printStackTrace();
         }
         memberView.dump(container.getCurrentList());
-    }
+    } */
 
     @Test
     void wrongLocationTest(){

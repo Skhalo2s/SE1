@@ -43,7 +43,7 @@ public class Container {
     public String deleteMember(Integer id){
 
         for (Member m: container){
-            if (m.getID() == id) {
+            if (m.getID().equals(id)) {
                 container.remove(m);
                 return "Das Member-Objekt mit der ID " + id + " wurde erfogreich geloescht!";
             }
