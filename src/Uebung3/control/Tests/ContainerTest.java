@@ -67,7 +67,8 @@ class ContainerTest {
     void StoreLoadeTest(){
 
         container = Container.getInstanc();
-        container.setPersistenceStrategie(new PersistenceStrategyStream());
+
+        container.setPersistenceStrategie( new PersistenceStrategyStream());
 
         // sicher stellen, dass noch liste leer ist
         assertEquals(0,container.size());

@@ -80,9 +80,7 @@ public class Container {
 
 
 
-    public boolean equals(Container o) {
-        return (this.size() == o.size() ) ;
-    }
+
 
     public void setPersistenceStrategie(PersistenceStrategy persistenceStrategy) {
         this.myStrategy = persistenceStrategy;
