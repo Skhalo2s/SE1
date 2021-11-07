@@ -22,7 +22,7 @@ public class AusgabeDialog {
 
     public String damp(){
         StringBuilder myBuilder = new StringBuilder(
-                "┌──────────────────────────────────────────────────────────────────────Employees-List───────────────────────────────────────────────────────────────────────┐\n"+
+                "┌──────────────────────────────────────────────────────────────────────Employees-List──────────────────────────────────────────────────────────────────────┐\n"+
 
                 "├──────────────────────────────┬──────────────────────────────┬──────────────────────────────┬──────────────────────────────┬──────────────────────────────┤\n"+
 
@@ -40,7 +40,7 @@ public class AusgabeDialog {
     // damp Abteilung X
     public String dampAbteilungX(String abteilungX){
         if (!containsX("Abteilung",abteilungX)){
-            return"Der Abteilung "+abteilungX+" ist nicht vorhanden!\nVersuchen Sie es nochmal.";
+            return"Die Abteilung "+abteilungX+" ist nicht vorhanden!\nVersuchen Sie es nochmal.";
         }
         StringBuilder myBuilder = new StringBuilder(
                 "┌──────────────────────────────────────────────────────────────────────Employees-List──────────────────────────────────────────────────────────────────────┐\n"+

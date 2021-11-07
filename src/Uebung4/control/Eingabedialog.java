@@ -28,7 +28,7 @@ public class Eingabedialog {
 
         System.out.println("\uD83D\uDCC3SP-Tool\uD83D\uDCC3 ⚫V1.0");
         System.out.println("©️ Salah Khalosi\n");
-        System.out.println("Guten Tag \uD83D\uDE4B \nUm die verfuegbaren Befehle zu sehen, geben Sie bitte das Wort 'help' ein.\n");
+        System.out.println("Guten Tag \uD83D\uDE4B \nUm die verfuegbaren Befehle zu sehen, geben Sie bitte das Wort 'help' ein.");
 
         EingabeConsole console = new EingabeConsole();
 
@@ -36,9 +36,9 @@ public class Eingabedialog {
 
             try {
 
-                System.out.print("> ");
+                System.out.print("\nGeben Sie ein Befehl ein\n> ");
 
-                assert stringsInput == null: "null";
+
                 stringsInput = input.readLine().split(" ");
 
             } catch (IOException e) {
@@ -119,11 +119,12 @@ public class Eingabedialog {
                         expertiseLev = console.readeIntLine("Bitte geben Sie für die " +Integer.toString(i+1) + ". Expertise ein Expertise-Level " +
                                 "(1 für  Beginner, 2 für Experte oder 3 für Top-Performer): ");
                         try {
-                            newEmployee.getExpertisen().setNewExpertise(expertise,expertiseLev);
-                            while (expertiseLev < 1 || expertiseLev > 3){// expertise Level soll 1,2 oder 3 sein
-                                expertiseLev = console.readeIntLine("Falsche Eingabe!\nBitte geben Sie für die" + i+1. + "Expertise nochmal ein Expertise-Level" +
+                             while (expertiseLev < 1 || expertiseLev > 3){// expertise Level soll 1,2 oder 3 sein
+                                expertiseLev = console.readeIntLine("\nFalsche Eingabe!\nBitte geben Sie für die " + i+1. + " Expertise nochmal ein Expertise-Level" +
                                         " (1 für  Beginner, 2 für Expertise oder 3 für Top-Performer): ");
                             }
+                            newEmployee.getExpertisen().setNewExpertise(expertise,expertiseLev);
+
                             // Expertise noch gewünscht ?
                             jaNein = console.readeJaNein("\nFalls Sie noch weiter Expertisen eingeben wollen, gebebn Sie Bitte das Wort 'Ja' ein."
                                     +"\nFalls Sie keine Expertisen mehr eingeben wollen, gebebn Sie Bitte das Wort 'Nein': ");
@@ -135,7 +136,7 @@ public class Eingabedialog {
 
                     try {// füge Mitrbeiter in der Liste ein
                         Container.getInstance().addEmployee(newEmployee );
-                        System.out.println("\nMitarbeiter worde erfolgreich hinzugefuegt.");
+                        System.out.println("\nMitarbeiter worde erfolgreich hinzugefuegt ✅.");
                     }
                     catch (ContainerException e) {
                      System.out.println("\nFehler beim Abspeichern der Mitarbeiter!");
@@ -157,7 +158,7 @@ public class Eingabedialog {
 
                 try {
                     Container.getInstance().store();
-                    System.out.println("\nListe worde auf dem PC erfolgreich gespeichert.");
+                    System.out.println("\nListe worde auf dem PC erfolgreich gespeichert ✅.");
                 } catch (PersistenceException e) {
                     System.out.println("\nListe konnte nich gespeischer werden. Versuchen Sie bitte nochmal!");
                 } catch (FileNotFoundException e) {
@@ -172,13 +173,23 @@ public class Eingabedialog {
                  if (stringsInput[1].equalsIgnoreCase("force")){
                     try {
                         Container.getInstance().loadForce();
+                        System.out.println("Liste wurde erflogreich von PC geladen und die alte Liste überschriben ✅.");
                     } catch (PersistenceException e) {
                         System.out.println("\nFehler beim Laden bei der Überschreibung der Liste!");
                     }
                 }
                 else if (stringsInput[1].equalsIgnoreCase("merge")){
                     try {
-                        Container.getInstance().loadMerge();
+                        System.out.println("ACHTUNG‼️ Mitarbeiter mit dem sleben ID werden nicht hinzugefuegt! ");
+                        String jaNein = console.readeJaNein("wollen Sie fortsetzen (JA/Nein)? ");
+                        if (jaNein.equalsIgnoreCase("ja")){
+                            Container.getInstance().loadMerge();
+                            System.out.println("\nListe wurde erflogreich von PC geladen und mit der alte Liste vereinigt ✅.");
+                        }
+                        else {
+                            System.out.println("\nListe wurde von PC nicht geladen.");
+                        }
+
                     } catch (PersistenceException e) {
                         System.out.println("\nFehler beim Laden bei der Vereinigung der Listen!");
                     }

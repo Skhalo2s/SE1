@@ -1,5 +1,7 @@
 package Uebung4.control;
 
+import java.io.Serializable;
+
 /**
  *
  * @author Salah Khalosi
@@ -8,7 +10,7 @@ package Uebung4.control;
  *
  */
 
-public class Employee{
+public class Employee implements Serializable {
 
     private String nachname = null;
     private String vorname= null;

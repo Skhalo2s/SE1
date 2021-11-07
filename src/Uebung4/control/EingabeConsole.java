@@ -62,19 +62,34 @@ public class EingabeConsole {
 
         try {
             sInput = inpot.readLine();
+            try {
+                id = Integer.valueOf(sInput);
+            }
+            catch (java.lang.NumberFormatException e){
+                System.out.println("\nDas ist leider keine Zahl!");
+                return this.readeIntLine(ausgabeText);
+            }
+
+            while (id < 0){
+                System.out.println("\nBitte nur positive Zhalen eingeben!");
+                id = readeIntLine(ausgabeText);
+            }
+            if(Container.getInstance().contain(id) && ausgabeText.equalsIgnoreCase("Bitte geben Sie die ID des Mitarbeiters ein: ")){
+                System.out.println("\nDie ID "+ id +" ist bereits enthalten versuchen Sie nochmal!");
+                id = readeIntLine(ausgabeText);
+            }/*else {
+                while (id>3||id<1){
+                    System.out.println("\nLevel soll 1,2 oder 3 sein!");
+                    id = readeIntLine(ausgabeText);
+                }
+            }*/
         }
         catch (IOException e) {
             System.out.println("Bei der eingabe von ID ist ein Problem aufgetreten");
             e.printStackTrace();
         }
 
-        try {
-            id = Integer.valueOf(sInput);
-        }
-        catch (java.lang.NumberFormatException e){
-            System.out.println("Fehler bei der eingabe von ID ist aufgetreten!\nDas ist leider keine Zahl!");
-            return this.readeIntLine(ausgabeText);
-        }
+
 
         return id;
     }
@@ -82,7 +97,7 @@ public class EingabeConsole {
     void flacheEingabe(){
         System.out.println("Falsche Eingabe! " +
                 "\nDieses Befehl existiert leider nicht :(\n" +
-                "Versuchen Sie es erneut!");
+                "Versuchen Sie es erneut!\n");
     }
 
 

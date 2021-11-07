@@ -4,6 +4,7 @@ import Uebung4.control.exceptions.ContainerException;
 import Uebung4.control.exceptions.PersistenceException;
 
 import java.io.FileNotFoundException;
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -67,12 +68,12 @@ public class Container{
 
     }
 
-    private boolean contain(Integer id){
+    public boolean contain(Integer id){
 
         boolean ret = false ;
 
         for (Employee m: container){
-            if(m.getID() == id)
+            if(m.getID().equals(id))
             ret = true;
         }
 
@@ -124,7 +125,10 @@ public class Container{
             List<Employee> tempList = myStrategy.load();
             for (Employee employee: tempList) {
                 try {
-                    this.addEmployee(employee);
+                    if (!contain(employee.getID())){
+                        this.addEmployee(employee);
+                    }
+
                 } catch (ContainerException e) {
 
                 }

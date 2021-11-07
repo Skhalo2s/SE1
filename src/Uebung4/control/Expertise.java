@@ -1,6 +1,8 @@
 package Uebung4.control;
 
 import Uebung4.control.exceptions.WrongInputException;
+
+import java.io.Serializable;
 import java.util.HashMap;
 
 /**
@@ -11,7 +13,7 @@ import java.util.HashMap;
  *
  */
 
-public class Expertise {
+public class Expertise implements Serializable{
 
 
     private HashMap<String,Integer> expertisenListe = null;
