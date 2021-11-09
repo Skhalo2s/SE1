@@ -66,7 +66,7 @@ public class Expertise implements Serializable{
         return  expertisenListe;
     }
 
-    // ToDo
+    // ToDo format
     public String getExpertisen() {
         StringBuilder myString = new StringBuilder("Expertise\tLevel\n───────────────┬─────────────\n");
 

@@ -2,9 +2,9 @@ package Uebung4.control;
 
 import Uebung4.control.exceptions.ContainerException;
 import Uebung4.control.exceptions.PersistenceException;
+import Uebung4.control.model.Employee;
 
 import java.io.FileNotFoundException;
-import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
 
