@@ -3,11 +3,11 @@ package Uebung4.view;
 
 import Uebung4.control.*;
 import Uebung4.control.exceptions.ContainerException;
-import Uebung4.control.exceptions.PersistenceException;
 import Uebung4.control.exceptions.WrongInputException;
-
-import java.io.FileNotFoundException;
+import java.io.ByteArrayInputStream;
+import java.io.InputStream;
 import java.util.Random;
+import java.util.Scanner;
 
 /**
  *
@@ -25,8 +25,15 @@ public class Main {
 
 
 
-        Eingabedialog eingabedialog = new Eingabedialog();
-        eingabedialog.starteEingabe();
+        //Eingabedialog eingabedialog = new Eingabedialog();
+        //eingabedialog.starteEingabe();
+
+        String data = "What_I_could_put_in_console";
+        InputStream stdin = System.in;
+        System.setIn(new ByteArrayInputStream(data.getBytes()));
+        Scanner scanner = new Scanner(System.in);
+        System.setIn(stdin);
+
     }
 
     public static void addRandomList(){

@@ -1,11 +1,11 @@
-package Uebung4.control;
+package Uebung4.control.Tests;
 
-import Uebung4.control.exceptions.PersistenceException;
+
+import Uebung4.control.Eingabedialog;
+
 import org.junit.jupiter.api.Test;
 
-import java.io.FileNotFoundException;
 
-import static org.junit.jupiter.api.Assertions.*;
 
 class SpToolTest {
     /**
@@ -26,7 +26,7 @@ class SpToolTest {
 
     @Test
     void test(){
-        try {
+        /*try {
             Container.getInstance().setPersistenceStrategie( new PersistenceStrategyStream());
             Container.getInstance().store();
 
@@ -39,7 +39,12 @@ class SpToolTest {
             Container.getInstance().loadMerge();
         } catch (PersistenceException e) {
             e.printStackTrace();
-        }
+        }*/
+    }
+    Eingabedialog eingabedialog = new Eingabedialog();
+    @Test
+    public void enterDumpStoreTest() {
+
     }
 
 }

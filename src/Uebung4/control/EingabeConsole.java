@@ -31,15 +31,18 @@ public class EingabeConsole {
 
             for (int i = 0; i < 10; i++) {// keine Zahlen im String vorhanden
                if( sInput.contains(i+"")){
-                   System.out.println("Bitte geben Sie keine Zahlen ein");
+                   System.out.println("\nBitte geben Sie keine Zahlen ein");
                    sInput = this.readeStringLine(ausgabeText);
                }
+            }
+            if(sInput.equalsIgnoreCase("")){
+                System.out.println("\nDas ist eine leere Eingabe!");
+                sInput = readeStringLine(ausgabeText);
             }
 
         }
         catch (IOException e) {
             System.out.println("Bei der eingabe von Daten ist ein Problem Aufgetreten");
-            e.printStackTrace();
         }
 
         return sInput;
@@ -82,11 +85,11 @@ public class EingabeConsole {
                     System.out.println("\nLevel soll 1,2 oder 3 sein!");
                     id = readeIntLine(ausgabeText);
                 }
+
             }*/
         }
         catch (IOException e) {
             System.out.println("Bei der eingabe von ID ist ein Problem aufgetreten");
-            e.printStackTrace();
         }
 
 

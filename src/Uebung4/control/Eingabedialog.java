@@ -3,6 +3,8 @@ package Uebung4.control;
 import Uebung4.control.exceptions.ContainerException;
 import Uebung4.control.exceptions.PersistenceException;
 import Uebung4.control.exceptions.WrongInputException;
+import Uebung4.view.EmployeeView;
+
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.IOException;
@@ -18,19 +20,21 @@ import java.io.InputStreamReader;
 
 public class Eingabedialog {
 
+
     String[] stringsInput;
 
     public void starteEingabe(){
         BufferedReader input = new BufferedReader( new InputStreamReader(System.in ));
 
 
-        AusgabeDialog ausgabe = new AusgabeDialog();
+        EmployeeView ausgabe = new EmployeeView();
+        EingabeConsole console = new EingabeConsole();
 
         System.out.println("\uD83D\uDCC3SP-Tool\uD83D\uDCC3 ⚫V1.0");
         System.out.println("©️ Salah Khalosi\n");
         System.out.println("Guten Tag \uD83D\uDE4B \nUm die verfuegbaren Befehle zu sehen, geben Sie bitte das Wort 'help' ein.");
 
-        EingabeConsole console = new EingabeConsole();
+
 
         while (true){
 
@@ -81,10 +85,10 @@ public class Eingabedialog {
 
 
              // enter
-            else if (stringsInput[0].equalsIgnoreCase("enter")){
+            else if (stringsInput[0].equalsIgnoreCase("enter") ){
 
                 try {
-                 if (stringsInput[1].equalsIgnoreCase("Mitarbeiter")) {
+                 if (stringsInput.length == 1) {
 
                     System.out.println("Geben sie die Grunddaten der Mitarbeiter ein.");
 
@@ -246,7 +250,7 @@ public class Eingabedialog {
 
 
             else if (stringsInput[0].equalsIgnoreCase("exit")){
-                 System.out.println("goodbye \uD83D\uDC4B☺.");
+                 System.out.println("Goodbye \uD83D\uDC4B☺.");
                 break;
              }
 

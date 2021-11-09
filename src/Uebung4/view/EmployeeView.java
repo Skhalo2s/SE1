@@ -1,4 +1,7 @@
-package Uebung4.control;
+package Uebung4.view;
+
+import Uebung4.control.Container;
+import Uebung4.control.Employee;
 
 import java.util.List;
 /**
@@ -9,10 +12,10 @@ import java.util.List;
  *
  */
 
-public class AusgabeDialog {
+public class EmployeeView {
     List<Employee> myListe = null;
 
-    public AusgabeDialog( ){
+    public EmployeeView( ){
         this.myListe = Container.getInstance().getCurrentList();
 
 
@@ -85,7 +88,6 @@ public class AusgabeDialog {
 
         return myBuilder.toString();
     }
-
 
 
 
