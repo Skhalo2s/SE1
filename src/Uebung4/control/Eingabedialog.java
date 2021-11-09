@@ -3,12 +3,12 @@ package Uebung4.control;
 import Uebung4.control.exceptions.ContainerException;
 import Uebung4.control.exceptions.PersistenceException;
 import Uebung4.control.exceptions.WrongInputException;
+import Uebung4.control.model.Employee;
+import Uebung4.control.model.Expertise;
 import Uebung4.view.EmployeeView;
 
-import java.io.BufferedReader;
 import java.io.FileNotFoundException;
-import java.io.IOException;
-import java.io.InputStreamReader;
+import java.util.Scanner;
 
 /**
  *
@@ -23,8 +23,8 @@ public class Eingabedialog {
 
     String[] stringsInput;
 
-    public void starteEingabe(){
-        BufferedReader input = new BufferedReader( new InputStreamReader(System.in ));
+    public void starteEingabe(Scanner input) {
+        //BufferedReader input = new BufferedReader( new InputStreamReader(System.in ));
 
 
         EmployeeView ausgabe = new EmployeeView();
@@ -38,16 +38,16 @@ public class Eingabedialog {
 
         while (true){
 
-            try {
+
 
                 System.out.print("\nGeben Sie ein Befehl ein\n> ");
 
 
-                stringsInput = input.readLine().split(" ");
+                stringsInput = input.nextLine().split(" ");
 
-            } catch (IOException e) {
-                System.out.println("Ein Problem beim lesen ist Aufgetereten!\n");
-            }
+
+                /*System.out.println("Ein Problem beim lesen ist Aufgetereten!\n");*/
+
 
 
             try {
@@ -106,6 +106,10 @@ public class Eingabedialog {
                     if (jaNein.equalsIgnoreCase("Ja")){
                         abteilung= console.readeStringLine("\nBitte geben Sie der Abteilung des Mitarbeiters ein: ");
                                                                             //" (falls der Mitarbeiter keiner Abteilung zugeordnet geben sie bitte 'Keine Abteiling': "
+                    }
+
+                    if(abteilung == null){
+                        abteilung = "Ist Keine Abteilung zugerotnet";
                     }
 
                     Employee newEmployee = new Employee(id,vorname,nachname,  rolle, abteilung, new Expertise());// Mitrbeiter erzeugen
@@ -177,22 +181,26 @@ public class Eingabedialog {
                  if (stringsInput[1].equalsIgnoreCase("force")){
                     try {
                         Container.getInstance().loadForce();
-                        System.out.println("Liste wurde erflogreich von PC geladen und die alte Liste überschriben ✅.");
+                        System.out.println("Liste wurde erflogreich von PC geladen und die vorhandene Liste wurde überschrieben ✅.");
                     } catch (PersistenceException e) {
                         System.out.println("\nFehler beim Laden bei der Überschreibung der Liste!");
                     }
                 }
                 else if (stringsInput[1].equalsIgnoreCase("merge")){
                     try {
-                        System.out.println("ACHTUNG‼️ Mitarbeiter mit dem sleben ID werden nicht hinzugefuegt! ");
+                        /*System.out.println("ACHTUNG‼️ Mitarbeiter mit dem sleben ID werden nicht hinzugefuegt! ");
                         String jaNein = console.readeJaNein("wollen Sie fortsetzen (JA/Nein)? ");
                         if (jaNein.equalsIgnoreCase("ja")){
-                            Container.getInstance().loadMerge();
-                            System.out.println("\nListe wurde erflogreich von PC geladen und mit der alte Liste vereinigt ✅.");
-                        }
-                        else {
+
+
+                        }*/
+
+                        Container.getInstance().loadMerge();
+                        System.out.println("\nListe wurde erflogreich von PC geladen und mit der alte Liste vereinigt ✅.");
+
+                        /*else {
                             System.out.println("\nListe wurde von PC nicht geladen.");
-                        }
+                        }*/
 
                     } catch (PersistenceException e) {
                         System.out.println("\nFehler beim Laden bei der Vereinigung der Listen!");
@@ -220,7 +228,6 @@ public class Eingabedialog {
                     }
                 }catch (ArrayIndexOutOfBoundsException e){
                     console.flacheEingabe();
-                    continue;
                 }
             }// dump Ende
 
@@ -243,7 +250,6 @@ public class Eingabedialog {
                 }
                 }catch (ArrayIndexOutOfBoundsException e){
                     console.flacheEingabe();
-                    continue;
                 }
 
             }//search Ende
@@ -259,8 +265,11 @@ public class Eingabedialog {
             }
             }catch (ArrayIndexOutOfBoundsException e){
                 console.flacheEingabe();
-                continue;
             }
         }
+    }
+
+    public void starteEingabe(){
+        this.starteEingabe(new Scanner(System.in));
     }
 }

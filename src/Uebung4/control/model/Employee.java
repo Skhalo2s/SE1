@@ -1,4 +1,4 @@
-package Uebung4.control;
+package Uebung4.control.model;
 
 import java.io.Serializable;
 

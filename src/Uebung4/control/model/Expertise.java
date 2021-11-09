@@ -1,4 +1,4 @@
-package Uebung4.control;
+package Uebung4.control.model;
 
 import Uebung4.control.exceptions.WrongInputException;
 
@@ -26,9 +26,6 @@ public class Expertise implements Serializable{
     public void setNewExpertise(String expertiseBezeichnung, int expertiseLevel) throws WrongInputException {
         if (expertiseLevel >3 || expertiseLevel <1)
             throw new WrongInputException("Expertise-Level soll 1, 2 oder 3 sein");
-
-        if (containsBezeichnung(expertiseBezeichnung))
-            throw new WrongInputException("Expertise ist beireits vorahnden!");
 
         if (expertisenListe.size()+1 > expertisenMax)
             throw new WrongInputException("Sie haben das Expertisen-Max erreicht.");

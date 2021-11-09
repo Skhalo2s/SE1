@@ -4,10 +4,10 @@ package Uebung4.view;
 import Uebung4.control.*;
 import Uebung4.control.exceptions.ContainerException;
 import Uebung4.control.exceptions.WrongInputException;
-import java.io.ByteArrayInputStream;
-import java.io.InputStream;
+import Uebung4.control.model.Employee;
+import Uebung4.control.model.Expertise;
+
 import java.util.Random;
-import java.util.Scanner;
 
 /**
  *
@@ -21,18 +21,44 @@ public class Main {
 
     public static void main(String[] args) {
 
+        /*
+
+
+         */
+
+
+        Eingabedialog eingabedialog = new Eingabedialog();
         addRandomList();
+        eingabedialog.starteEingabe();
 
+        //1 Test
+       /*
+       enter
 
+       dump
 
-        //Eingabedialog eingabedialog = new Eingabedialog();
+       dump abteilung AbteilungX
+       search abteilung AbteilungX
+       search abteilung Abteilungy
+
+       search Expertise BWL
+       search Expertise Big-Data
+       search Expertise Prog
+
+       store
+       exit
+        */
+
+        //2 Test
+        //addRandomNewList();
         //eingabedialog.starteEingabe();
 
-        String data = "What_I_could_put_in_console";
-        InputStream stdin = System.in;
-        System.setIn(new ByteArrayInputStream(data.getBytes()));
-        Scanner scanner = new Scanner(System.in);
-        System.setIn(stdin);
+        /*
+       dump
+       load merge
+       dump
+       exit
+        */
 
     }
 
@@ -101,6 +127,34 @@ public class Main {
                 e.printStackTrace();
             }
         }
+    }
+
+
+    public static void addRandomNewList(){
+        Expertise newExpertise = new  Expertise();
+        int rand = new  Random().nextInt(4-1)+1;
+
+        try {
+            newExpertise.setNewExpertise("Prog", rand);
+        } catch (WrongInputException e) {
+            e.printStackTrace();
+        }
+        for (int i = 100; i < 110; i++) {
+            rand = new Random().nextInt(4-1)+1;
+            newExpertise = new Expertise();
+            try {
+                newExpertise.setNewExpertise("Prog", rand);
+            } catch (WrongInputException e) {
+                e.printStackTrace();
+            }
+            try {
+                Container.getInstance().addEmployee(new Employee(i,"Name"+i,"Nachname"+i,"RolleA","AbteilungA",newExpertise));
+            } catch (ContainerException e) {
+                e.printStackTrace();
+            }
+
+        }
+
     }
 
 }
