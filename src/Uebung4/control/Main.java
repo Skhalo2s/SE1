@@ -1,4 +1,4 @@
-package Uebung4.view;
+package Uebung4.control;
 
 
 import Uebung4.control.*;
